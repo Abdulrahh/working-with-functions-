@@ -2,11 +2,9 @@ import math
 #Write a Python program that Asks the user to enter a number, displays whether the number is If the number is positive, also display whether it is
 def number_checker():
     user =  math.floor(float(input ("Enter a number: ")))
-    #user = round(user, 0)
-    #user = math.ceil(user)
-    #user = math.floor(user)
-
-
+    #user = round(user, 0)  # rounds ups by doesnt round up 10.5 
+    #user = math.ceil(user) # rounds up 10.5 
+    #user = math.floor(user) # removes any decimal value 
 
     if user  % 2 == 0 :
         print("Your number is even ")
@@ -28,15 +26,16 @@ number_checker()
 
 def password_guess():   
     password = "BTEC2026"
-    while True:
+    count = 0
+    while user_input != password:
         user_input = input("Enter password to guess: ") 
-        if user_input == password:
-            print(F"You got the correct passord: {password}")
-            break 
-        else:
-            print(f"Wrong, correct password is {password}")
+        count += 1 
+        if count >= 3:
+            print("You've been locked out too many attempts")
+            break
+    print(f"it took you {count} attempts")
 
-
+password_guess()
 
 #Write a function called calculate_average() that:
 #Accepts a list of numbers as a parameter.
@@ -53,7 +52,7 @@ def calculate_average():
     average = sum(numbers) / len(numbers)
     print (f"Your average is: {average}")
 
-
+calculate_average()
 
 # Create a program to manage student grades:
 #Store 3 students’ names and their grades in a dictionary.
@@ -72,4 +71,7 @@ def grade_checker():
         print(f"{user} garde is: {grade}")
 
     else:
+
         print("Your name doesnt exit")
+
+grade_checker()
